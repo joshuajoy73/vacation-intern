@@ -1,0 +1,30 @@
+// hashlib_test.go
+package hashlib
+
+import (
+	"testing"
+)
+
+func TestHashMD5(t *testing.T) {
+	input := "hello"
+	expected := "5d41402abc4b2a76b9719d911017c592"
+	if result := HashMD5(input); result != expected {
+		t.Errorf("HashMD5(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHashSHA1(t *testing.T) {
+	input := "hello"
+	expected := "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d"
+	if result := HashSHA1(input); result != expected {
+		t.Errorf("HashSHA1(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHashSHA256(t *testing.T) {
+	input := "hello"
+	expected := "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+	if result := HashSHA256(input); result != expected {
+		t.Errorf("HashSHA256(%q) = %q; want %q", input, result, expected)
+	}
+}
