@@ -1,0 +1,40 @@
+// hashlib.go
+package hashlib
+
+import (
+	"crypto/md5"
+	"crypto/sha1"
+	"crypto/sha256"
+	"encoding/hex"
+	"fmt"
+)
+
+// HashMD5 returns the MD5 hash of the input string.
+func HashMD5(input string) string {
+	hasher := md5.New()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+// HashSHA1 returns the SHA-1 hash of the input string.
+func HashSHA1(input string) string {
+	hasher := sha1.New()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+
+func HashSHA256(input string) string {
+	hasher := sha256.New()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+func ExampleUsage() {
+
+	fmt.Println("MD5: ", HashMD5("hello"))
+
+
+	fmt.Println("SHA-1: ", HashSHA1("hello"))
+
+	fmt.Println("SHA-256: ", HashSHA256("hello"))
+}
