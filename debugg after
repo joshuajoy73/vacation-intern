@@ -1,0 +1,19 @@
+FUNCTION HashMD5(input: STRING) RETURNS STRING
+    INITIALIZE hasher AS new MD5 hasher
+    hasher.WRITE(BYTE ARRAY of input)
+    RETURN hexadecimal representation of hasher.SUM()
+END FUNCTION
+
+
+  FUNCTION HashSHA1(input: STRING) RETURNS STRING
+    INITIALIZE hasher AS new SHA-1 hasher
+    hasher.WRITE(BYTE ARRAY of input)
+    RETURN hexadecimal representation of hasher.SUM()
+END FUNCTION
+
+
+  FUNCTION HashSHA256(input: STRING) RETURNS STRING
+    INITIALIZE hasher AS new SHA-256 hasher
+    hasher.WRITE(BYTE ARRAY of input)
+    RETURN hexadecimal representation of hasher.SUM()
+END FUNCTION
