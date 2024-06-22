@@ -1,0 +1,12 @@
+package main
+
+import (
+	"fmt"
+	"hashlib"
+)
+
+func main() {
+	fmt.Println("MD5: ", hashlib.HashMD5("hello"))
+	fmt.Println("SHA-1: ", hashlib.HashSHA1("hello"))
+	fmt.Println("SHA-256: ", hashlib.HashSHA256("hello"))
+}
