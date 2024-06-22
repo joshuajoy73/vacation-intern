@@ -1,0 +1,80 @@
+
+package hashlib
+
+import (
+	"testing"
+)
+
+func TestHashMD5(t *testing.T) {
+	input := "hello"
+	expected := "5d41402abc4b2a76b9719d911017c592"
+	if result := HashMD5(input); result != expected {
+		t.Errorf("HashMD5(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHashSHA1(t *testing.T) {
+	input := "hello"
+	expected := "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d"
+	if result := HashSHA1(input); result != expected {
+		t.Errorf("HashSHA1(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHashSHA256(t *testing.T) {
+	input := "hello"
+	expected := "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+	if result := HashSHA256(input); result != expected {
+		t.Errorf("HashSHA256(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHashSHA3_224(t *testing.T) {
+	input := "hello"
+	expected := "dfb7f18c77e928bb56faeb2da27291bd790bc10462ed194f11aef0e6"
+	if result := HashSHA3_224(input); result != expected {
+		t.Errorf("HashSHA3_224(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHashSHA3_256(t *testing.T) {
+	input := "hello"
+	expected := "3338be9ffb4a7c7f9926f7847f02ab94d9df98f0a745ae0344e650c4467ecfc0"
+	if result := HashSHA3_256(input); result != expected {
+		t.Errorf("HashSHA3_256(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHashSHA3_384(t *testing.T) {
+	input := "hello"
+	expected := "720aea11025d53d39dfa6f9bc256f47a1f8a453cfac1046a14a7c65a2a13107a99e236f76e43f4aecfa24e2fa62a79e3"
+	if result := HashSHA3_384(input); result != expected {
+		t.Errorf("HashSHA3_384(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHashSHA3_512(t *testing.T) {
+	input := "hello"
+	expected := "b751850b1a57168a5693cd924b1a97c9b3aaeb50b392d4f32b8b2dc7f5c6d3e7e3c1f74d8a81dbb8a90d9020df55a759915f15e3cd8eebdf4a62a82cfa3e5d7b"
+	if result := HashSHA3_512(input); result != expected {
+		t.Errorf("HashSHA3_512(%q) = %q; want %q", input, result, expected)
+	}
+}
+
+func TestHMACSHA256(t *testing.T) {
+	input := "hello"
+	key := "secret"
+	expected := "5d5c3617fdd9d5f870bba451e764db9bda2d86d9f7cc5c9d9e6e0e7155c23df5"
+	if result := HMACSHA256(input, key); result != expected {
+		t.Errorf("HMACSHA256(%q, %q) = %q; want %q", input, key, result, expected)
+	}
+}
+
+func TestHMACSHA512(t *testing.T) {
+	input := "hello"
+	key := "secret"
+	expected := "b4d56afae31b76838f330d80286f4e5f02dbb36d91dbcf51290bde663ac6ec2a29d205b4093a99d51e09d1c4649a78cfb54b6b620e1501f48a7c6f82004f6ef8"
+	if result := HMACSHA512(input, key); result != expected {
+		t.Errorf("HMACSHA512(%q, %q) = %q; want %q", input, key, result, expected)
+	}
+}
