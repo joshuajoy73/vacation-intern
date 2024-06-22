@@ -1,0 +1,18 @@
+package main
+
+import (
+	"fmt"
+	"hashlib"
+)
+
+func main() {
+	fmt.Println("MD5: ", hashlib.HashMD5("hello"))
+	fmt.Println("SHA-1: ", hashlib.HashSHA1("please"))
+	fmt.Println("SHA-256: ", hashlib.HashSHA256("enter"))
+	fmt.Println("SHA3-224: ", hashlib.HashSHA3_224("your"))
+	fmt.Println("SHA3-256: ", hashlib.HashSHA3_256("verification"))
+	fmt.Println("SHA3-384: ", hashlib.HashSHA3_384("number"))
+	fmt.Println("SHA3-512: ", hashlib.HashSHA3_512("hello"))
+	fmt.Println("HMAC-SHA256: ", hashlib.HMACSHA256("hello", "secret"))
+	fmt.Println("HMAC-SHA512: ", hashlib.HMACSHA512("hello", "secret"))
+}
