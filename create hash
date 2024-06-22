@@ -1,0 +1,75 @@
+// hashlib.go
+package hashlib
+
+import (
+	"crypto/hmac"
+	"crypto/sha256"
+	"crypto/sha512"
+	"crypto/md5"
+	"crypto/sha1"
+	"encoding/hex"
+	"golang.org/x/crypto/sha3"
+)
+
+// HashMD5 returns the MD5 hash of the input string.
+func HashMD5(input string) string {
+	hasher := md5.New()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+// HashSHA1 returns the SHA-1 hash of the input string.
+func HashSHA1(input string) string {
+	hasher := sha1.New()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+// HashSHA256 returns the SHA-256 hash of the input string.
+func HashSHA256(input string) string {
+	hasher := sha256.New()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+// HashSHA3_224 returns the SHA3-224 hash of the input string.
+func HashSHA3_224(input string) string {
+	hasher := sha3.New224()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+// HashSHA3_256 returns the SHA3-256 hash of the input string.
+func HashSHA3_256(input string) string {
+	hasher := sha3.New256()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+// HashSHA3_384 returns the SHA3-384 hash of the input string.
+func HashSHA3_384(input string) string {
+	hasher := sha3.New384()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+// HashSHA3_512 returns the SHA3-512 hash of the input string.
+func HashSHA3_512(input string) string {
+	hasher := sha3.New512()
+	hasher.Write([]byte(input))
+	return hex.EncodeToString(hasher.Sum(nil))
+}
+
+// HMACSHA256 returns the HMAC of input using the secret key and SHA-256.
+func HMACSHA256(input, key string) string {
+	h := hmac.New(sha256.New, []byte(key))
+	h.Write([]byte(input))
+	return hex.EncodeToString(h.Sum(nil))
+}
+
+// HMACSHA512 returns the HMAC of input using the secret key and SHA-512.
+func HMACSHA512(input, key string) string {
+	h := hmac.New(sha512.New, []byte(key))
+	h.Write([]byte(input))
+	return hex.EncodeToString(h.Sum(nil))
+}
